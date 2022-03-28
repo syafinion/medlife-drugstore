@@ -110,15 +110,17 @@ export class CheckoutPage implements OnInit {
       await alert.present();
 
     //if user has not entered their address
-    } else {
-      this.showToast("Please enter your address");
-
     }
   }
 
     //check to see if user has entered their address or not
     formValidation(){
       if (!this.post.address){
+        this.showToast("Please enter your address");
+        return false;
+      }
+      if (!this.post.payment){
+        this.showToast("Please enter your payment method");
         return false;
       }
       return true;
