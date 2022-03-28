@@ -1,0 +1,121 @@
+ion-content {
+    margin-bottom: 30px;
+    // overwrite inline styles
+    --offset-bottom: auto !important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+     display: none;
+    }
+    background: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
+  }
+    
+     #faq{
+      ul{
+         padding: 0;
+    
+         li{
+          position: relative;
+          overflow: hidden;
+          padding: 0;
+          margin: 0;
+          background: linear-gradient(315deg, #ee8c68 0%, #eb6b9d 74%);
+           box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
+           +{
+             li{
+               margin-top: 15px;
+           }
+          }
+           i{
+            position: absolute;
+            transform: translate(-6px,0);
+            margin-top: 28px;
+            right: 15px;
+            &:before{
+              content: "";
+              position: absolute;
+              transition: all 0.3s;
+              background-color: #D2691E;
+              width: 3px;
+              height: 9px;
+              transform: translate(-2px,0) rotate(45deg);
+            }
+            &:after{
+              transform: translate(2px,0) rotate(-45deg);
+              transition: all 0.35;
+              content: "";
+              position: absolute;
+              background-color: #F4A460;
+              width: 3px;
+              height: 9px;
+           }
+         }
+         input[type="checkbox"] {
+          position: absolute;
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          opacity: 0;
+          touch-action: manipulation;
+          &:checked{
+            ~ {
+               h2{
+                 color: rgb(0, 0, 0);
+                 font-size: 12px;
+               }
+               p{
+                 
+                max-height: 0;
+                transition: 0.3s;
+                opacity: 0;
+               }
+               i{
+                &:before{
+                   transform: translate(2px,0) rotate(45deg);
+                }
+                &:after{
+                   transform: translate(-2px,0) rotate(-45deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+      .no-select{
+        user-select:none;
+      }
+      h2{
+        color: rgb(255,250,205);
+        font-size: 15px;
+        line-height: 34px;
+        text-align: left;
+        padding: 15px 15px 0;
+        text-transform: none;
+        font-weight: 300;
+        letter-spacing: 1px;
+        display: block;
+        margin: 0;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      p{
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.45;
+    position: relative;
+    overflow: hidden;
+    max-height: 250px;
+    will-change: max-height;
+    contain: layout;
+    display: inline-block;
+    opacity: 1;
+    transform: translate(0,0);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 0 50px 0 15px;
+    transition: 0.3s opacity, 0.6s max-height;
+      }
+      }

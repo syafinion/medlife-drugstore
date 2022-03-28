@@ -1,0 +1,79 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/tabs/tab2">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <ion-title>{{ product.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-fab-button (click)="openCart()" color="orange" #myfab>
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+
+      </ion-col>
+      <ion-col size="9">
+        <ion-slides pager="true">
+          <ion-slide>
+            <img src="{{ product.filepath }}"/>
+          </ion-slide>
+          <ion-slide>
+            <img src="{{ product.filepath2 }}"/>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item lines="none" class="ion-margin-vertical">
+    <ion-label>
+      {{ product.name}}
+      <p><ion-text color="white">{{ product.category}}</ion-text></p>
+    </ion-label>
+    <ion-text class="price" color="dark" slot="end">
+      <b>RM{{ product.price }}</b>
+    </ion-text>
+  </ion-item>
+  <div class="seperator">
+    <hr>
+  </div>
+  <br>
+  
+  <ion-card class="description">
+    <ion-card-header>
+    <h5><b>Description</b></h5>
+  </ion-card-header>
+  <ion-card-content>
+  <p>
+    {{ product.desc }}
+  </p>
+  <ion-item lines="full">
+    <ion-label slot="start">Stock:</ion-label>
+    <ion-text slot="end">{{ product.stock }}</ion-text>
+  </ion-item>
+</ion-card-content>
+</ion-card>
+
+  <div class="seperator">
+    <hr>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6" class="ion-text-center buy">
+        <ion-button fill="clear" color="light">Buy Now</ion-button>
+      </ion-col>
+      <ion-col size="6" class="ion-text-center">
+        <ion-button fill="clear" color="dark" (click)="addToCart($event, p)">Add To Cart</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

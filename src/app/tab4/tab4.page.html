@@ -1,0 +1,94 @@
+
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Track Order</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="filter" routerLink="/search-product">
+        <ion-icon name="search-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<div class="tab-wrap">
+  
+    <input type="radio" name="tabs" id="tab1" checked>
+    <div class="tab-label-content" id="tab1-content">
+      <label class="tab-label" for="tab1">To ship</label>
+      <div class="tab-content">
+
+          <ion-card *ngFor="let item of ToShip | async; let num = index;">
+            <ion-item lines="full">
+              <ion-icon name="pin" slot="start" color="danger"></ion-icon>
+              <ion-label color="orange">To Ship</ion-label>
+              <ion-button fill="outline" color="orange" slot="end" [routerLink]="['/orderdetail', item.order_id]">view</ion-button>
+            </ion-item>
+          <ion-item>
+                  <ion-text style="font-size: small;"><b>Order ID:</b> {{ item.order_id }}</ion-text><br>
+          </ion-item>
+          <ion-item>
+            <ion-label>Total: </ion-label>
+              <ion-text color="orange" slot="end">RM{{ item.total }}</ion-text>
+            </ion-item>
+          </ion-card>
+        
+      </div>
+    </div>
+     
+    <input type="radio" name="tabs" id="tab2">
+    <div class="tab-label-content" id="tab2-content">
+      <label class="tab-label" for="tab2">To receive</label>
+      <div class="tab-content">
+
+        <ion-card *ngFor="let c of receive | async; let num = index;">
+          <ion-item lines="full">
+            <ion-icon name="pin" slot="start" color="danger"></ion-icon>
+            <ion-label color="orange">To Receive</ion-label>
+            <ion-button fill="outline" color="orange" slot="end" [routerLink]="['/receive-details-user', c.order_id]">view</ion-button>
+          </ion-item>
+        <ion-item>
+                <ion-text style="font-size: small;"><b>Order ID: </b> {{ c.order_id }}</ion-text><br>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total: </ion-label>
+            <ion-text color="orange" slot="end">RM{{ c.total }}</ion-text>
+          </ion-item>
+        </ion-card>
+
+      </div>
+    </div>
+
+    <input type="radio" name="tabs" id="tab3">
+    <div class="tab-label-content" id="tab3-content">
+      <label class="tab-label" for="tab3">Completed</label>
+      <div class="tab-content">
+        <ion-card *ngFor="let c of comp | async; let num = index;">
+          <ion-item lines="full">
+            <ion-icon name="pin" slot="start" color="danger"></ion-icon>
+            <ion-label color="orange">Completed</ion-label>
+            <ion-button fill="outline" color="orange" slot="end" [routerLink]="['/comp-details', c.order_id]">view</ion-button>
+          </ion-item>
+        <ion-item>
+                <ion-text style="font-size: small;"><b>Order ID: </b> {{ c.order_id }}</ion-text><br>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total: </ion-label>
+            <ion-text color="orange" slot="end">RM{{ c.total }}</ion-text>
+          </ion-item>
+        </ion-card>
+  
+
+      </div>
+    </div>
+    
+    
+    <div class="slide"></div>
+  
+</div>
+</ion-content>

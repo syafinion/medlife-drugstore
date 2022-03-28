@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true" class="ion-padding background">
+  <ion-text>
+    <h1>Medlife Drugstore.</h1>
+     <p>Get started by logging into<br>your account.</p>
+  </ion-text>
+  <div class="actions">
+    <div class="login-buttons">
+      <ion-button routerLink="/login-admin">
+        <ion-avatar>
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </ion-avatar>
+        <ion-label>Admin!</ion-label>
+      </ion-button>
+      <ion-button (click)="authService.GoogleAuth()">
+        <ion-avatar>
+          <ion-icon name="logo-google"></ion-icon>
+        </ion-avatar>
+        <ion-label>Google</ion-label>
+      </ion-button>
+    </div>
+    <div class="separator">
+      <span>or</span>
+      <span class="line left"></span>
+      <span class="line right"></span>
+    </div>
+<ion-button class="signup-btn" expand="block" routerLink="/register">Signup with Email</ion-button>
+<p class="login">Existing user? <a routerLink="/login">Login now</a></p>
+</div>
+</ion-content>

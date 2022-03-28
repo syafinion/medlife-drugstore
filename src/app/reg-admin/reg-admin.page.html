@@ -1,0 +1,68 @@
+<ion-content [fullscreen]="true" class="background">
+
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button  color="light" defaultHref="welcome"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <!--Banner-->
+  <ion-row class="logo">
+    <ion-col>
+      <ion-buttons slot="start" color="brown">
+        <ion-back-button color="brown"></ion-back-button>
+      </ion-buttons>
+      <ion-img src="assets/logo.png"></ion-img>
+      <ion-label>
+        <p class="ion-text-left logoLabel" color="lightbrown">Sign up Now</p>
+        <p class="ion-text-left"> To Get a Haircut</p>
+      </ion-label>
+    </ion-col>
+  </ion-row> 
+</ion-content>
+
+<ion-footer>
+  <ion-list lines="full">
+    <ion-list-header class="ion-margin">
+      <ion-label>
+        <p><ion-text color="dark"> New Admin</ion-text></p>
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item-group class="ion-margin-horizontal">
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="stacked">Username</ion-label>  
+        <ion-input type="text"  placeholder="Username" [(ngModel)]="user.displayName"><ion-icon name="person" slot="start" color="medium"></ion-icon>
+        </ion-input>
+      </ion-item>
+      </div>
+      <div class="ion-margin-vertical">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>  
+          <ion-input type="email"  placeholder="Email Address" [(ngModel)]="user.email"><ion-icon name="mail" slot="start" color="medium"></ion-icon>
+          </ion-input>
+        </ion-item>
+        </div>
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <app-show-hide-password>
+            <ion-label position="stacked">Password</ion-label>
+            
+            <ion-input type="Password" placeholder="Password" [(ngModel)]="user.password"><ion-icon name="key" slot="start" color="medium"></ion-icon></ion-input>
+          </app-show-hide-password>
+          </ion-item>
+          </div>
+          <div class="ion-margin-vertical">
+            <ion-item>
+              <ion-label position="stacked">Phone Number</ion-label>  
+              <ion-input type="tel"  placeholder="010-0000000" [(ngModel)]="user.phoneNumber"><ion-icon name="call" slot="start" color="medium"></ion-icon>
+              </ion-input>
+            </ion-item>
+            </div>
+
+      <ion-button class="signup-btn" size="large" expand="block" shape="round" (click)="register(user)"><ion-text color="light">Sign in</ion-text></ion-button>
+    </ion-item-group>
+  </ion-list>
+</ion-footer>

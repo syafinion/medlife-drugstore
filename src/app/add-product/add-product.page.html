@@ -1,0 +1,67 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/listproducts">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <h4 class="ion-text-center">Add Products</h4>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <ion-text color="primary">
+      <p>Please fill up the product form</p>
+    </ion-text>
+
+    <ion-item style="border-radius: 10px;">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" [(ngModel)]="product.name" required></ion-input>
+    </ion-item>
+<br>
+    <ion-item style="border-radius: 10px;">
+      <ion-label position="floating">Price</ion-label>
+      <ion-input type="text" placeholder="RM" [(ngModel)]="product.price" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item style="border-radius: 10px;">
+      <ion-label>Category</ion-label>
+      <ion-select value="General" okText="Okay" [(ngModel)]="product.category" cancelText="Dismiss">
+        <ion-select-option value="Skincare">Skincare</ion-select-option>
+        <ion-select-option value="Haircare">Haircare</ion-select-option>
+        <ion-select-option value="Moisturizer">Moisturizer</ion-select-option>
+        <ion-select-option value="Sunscreen">Sunscreen</ion-select-option>
+        <ion-select-option value="Conditioner">Conditioner</ion-select-option>
+        <ion-select-option value="Shampoo">Shampoo</ion-select-option>
+        <ion-select-option value="Hair oil">Hair oil</ion-select-option>
+        <ion-select-option value="Make Up">Make Up</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-item style="border-radius: 10px;">
+      <ion-label>Product Picture</ion-label>
+      <input type="file"
+ id="file"
+ #userPhoto
+ (change)="onFileSelected($event)"
+ name="filepath"
+ autocomplete="off"
+ />
+    </ion-item>
+    <br>
+    <ion-item style="border-radius: 10px;">
+      <ion-label position="floating">Description</ion-label>
+      <ion-input type="text" [(ngModel)]="product.desc"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item style="border-radius: 10px;">
+      <ion-label position="floating">Stock</ion-label>
+      <ion-input type="number" [(ngModel)]="product.stock"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="orange" (click)="addProduct(product)">
+      <ion-icon slot="start" name="send"></ion-icon>
+      Add Product
+    </ion-button>
+   </div>
+</ion-content>
+

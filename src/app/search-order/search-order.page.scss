@@ -1,0 +1,8 @@
+
+  ion-content {
+    width: calc(104% + 15px);
+    --background: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
+  }
+  ion-content::part(scroll) {
+    padding-right: 15px;
+  }

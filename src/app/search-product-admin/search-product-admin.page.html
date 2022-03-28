@@ -1,0 +1,36 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/listproducts">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <h4 class="ion-text-center"><b>Search Product</b></h4>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product" type="text" (ionInput)="filterList($event)"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+
+  <ion-list-header>Results</ion-list-header>
+  <div class="order-items">
+    <ion-card mode="ios" *ngFor="let product of productList">
+      <ion-card-content>
+        <div class="item-img">
+          <img src='{{ product.filepath }}' />
+        </div>
+
+        <div class="item-info">
+          <p>{{ product.name }}</p>
+          <p>{{ product.category }}</p>
+          <p>RM: {{ product.price }}</p>
+          <p>Stock: {{ product.stock }}</p>
+
+          <ion-button expand="block" class="main-button" [routerLink]="['/item-details-admin', product.id]">Read More</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    </div>
+</ion-content>

@@ -1,0 +1,74 @@
+ion-content {
+    width: calc(100% + 15px);
+        
+      ion-content::part(scroll) {
+        padding-right: 15px;
+      }
+    ion-grid {
+        padding: 0;
+        ion-row {
+            height: 70vh;
+            ion-col {
+                padding: 0;
+                ion-slides {
+                    height: 100%;
+                    --bullet-background: var(--ion-color-medium);
+                    --bullet-background-active: var(--ion-color-primary-contrast);
+                    border-radius: 40px 0 0 40px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        background: var(--ion-color-orange);
+                    }
+                }
+                div {
+                    ion-button {
+                        margin-top: 5vh;
+                        ion-icon {
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ion-item {
+        ion-label {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .price {
+            align-self: end;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+ion-footer {
+    .buy {
+        background: var(--ion-color-orange);
+        border-radius: 0 10px 0 0;
+    }
+}
+
+.description {
+    h5 {
+        color: #2a2a2a;
+        padding-top: 10px;
+    }
+
+    p {
+        color: #656565;
+        text-align: justify;
+    }
+}
+
+.seperator {
+    hr {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: #e2e2e2;
+    }
+}

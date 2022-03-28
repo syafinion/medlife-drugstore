@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <div id="bg">
+  </div>
+    <ion-fab vertical="center"  horizontal="center">
+    <ion-fab-button color="white" routerLink="/welcome">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+    </ion-fab>
+    <ion-list lines="none" class="ion-margin">
+      <ion-list-header>WELCOME !</ion-list-header>
+      <ion-text class="ion-margin" color="lightgrey">Enjoy your new Account!</ion-text>
+      <ion-item class="ion-margin">
+        <ion-input placeholder="Enter Email" type="email" clearInput="true" #userEmail></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin">
+        <app-show-hide-password>
+          <ion-input placeholder="Enter Password" type="password" #userPassword  clearInput="true">
+
+        </ion-input>
+        </app-show-hide-password>
+      </ion-item>
+      <ion-text color="medium" routerLink="/forgot-password"><p class="ion-margin-horizontal">Forgot Password?</p></ion-text>
+      <div align="right">
+      <ion-button shape="round" strong="true" class="ion-margin-end" color="orange" (click)="authService.SignIn(userEmail.value, userPassword.value)">SIGN IN <ion-icon name="log-in" slot="end"></ion-icon></ion-button>
+      </div>
+    </ion-list>
+</ion-content>

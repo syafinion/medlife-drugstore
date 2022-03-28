@@ -1,0 +1,42 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/welcome-admin">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <h4 class="ion-text-center">Products</h4>
+    <ion-buttons slot="end">
+      <ion-button class="filter" routerLink="/search-product-admin">
+        <ion-icon name="search-outline" color="dark"></ion-icon>
+      </ion-button>
+      <ion-fab-button color="orange" [routerLink]="['/add-product']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    
+    </ion-buttons>
+    
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="title">List of Products <ion-icon name="file-tray-stacked-outline"></ion-icon></h1>
+
+  <div class="order-items">
+    <ion-card mode="ios" *ngFor="let p of products">
+      <ion-card-content>
+        <div class="item-img">
+          <img src='{{ p.filepath }}' />
+        </div>
+
+        <div class="item-info">
+          <p>{{ p.name }}</p>
+          <p>{{ p.category }}</p>
+          <p>RM: {{ p.price }}</p>
+          <p>Stock: {{ p.stock }}</p>
+
+          <ion-button expand="block" class="main-button" [routerLink]="['/item-details-admin', p.id]">Read More</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    </div>
+</ion-content>

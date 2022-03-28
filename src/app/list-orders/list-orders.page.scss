@@ -1,0 +1,113 @@
+
+  .tab-wrap {
+    width: 106%;
+    position: relative;
+    display: flex;
+    top: 1px;
+    box-shadow: -1px 1px 3px 0px #bbb;    
+  }
+  .tab-label {
+    cursor: pointer;
+    color: #111;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 56px;
+    transition: color 0.2s ease;
+    width: 100%;
+    
+  }
+  .slide {
+    background: #FFA500;
+    width: calc(100% / 3);
+    height: 4px;
+    position: absolute;
+    left: 0;
+    top: calc(100% - 2px);
+    transition: left 0.3s ease-out;
+  }
+  
+  .tab-label-content {
+    width: 100%;
+  }
+  
+  .tab-label-content .tab-content {
+    position: absolute;
+    top: 65px;
+    left: 13px;
+    line-height: 130%;
+    display: none;
+  }
+
+  input[type="radio"][name="tabs"] {
+    position: absolute;
+    z-index: -1;    
+  }
+  input[type="radio"][name="tabs"]:checked + .tab-label-content .tab-label {
+    color: #FFA500;
+    border-left: #ddd solid 1px;
+    border-right: #ddd solid 1px;
+    font-weight: 500;
+  
+  }
+  input[type="radio"][name="tabs"]:checked + .tab-label-content .tab-content {
+    display: block;
+  }
+  input[type="radio"][name="tabs"]:nth-of-type(1):checked ~ .slide {
+    left: calc((100% / 3) * 0);
+  
+  }
+  input[type="radio"][name="tabs"]:nth-of-type(2):checked ~ .slide {
+    left: calc((100% / 3) * 1);
+  }
+  input[type="radio"][name="tabs"]:nth-of-type(3):checked ~ .slide {
+    left: calc((100% / 3) * 2);
+  }
+  
+  input[type="radio"][name="tabs"]:first-of-type:checked ~ .slide {
+    left: 0;
+  }
+  
+  ion-header {
+  
+    .titles {
+      position: relative;
+      padding: 0 1.2rem;
+      background: var(--ion-color-brown);
+      h4, h6 {
+        margin: 0;
+        margin-bottom: 4px;
+        color: #fff;
+        ion-icon {
+          vertical-align: middle;
+        }
+      }
+      h4 {
+        text-align: center;
+        font-weight: 900;
+        font-size: 26px;
+      }
+      h6 {
+        font-weight: 600;
+      }
+    }
+  
+  }
+
+  ion-content {
+    width: calc(100% + 15px);
+  --background: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
+    
+  }
+  ion-content::part(scroll) {
+    padding-right: 15px;
+  }
+
+  ion-card{
+    width: 99%;
+    position: relative;
+  left: -22px;
+  }

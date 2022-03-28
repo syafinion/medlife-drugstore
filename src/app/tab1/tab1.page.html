@@ -1,0 +1,82 @@
+
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <h4 class="ion-text-center"><b>Home</b></h4>
+    <ion-buttons slot="end">
+      <ion-button class="filter" routerLink="/search-product">
+        <ion-icon name="search-outline" color="dark"></ion-icon>
+      </ion-button>
+      <ion-fab-button (click)="openCart()" color="orange" #myfab>
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product" routerLink="/search-product"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+
+  <div class="title ion-padding">
+    <h2>Categories</h2>
+    <p>See all</p>
+  </div>
+
+  <div class="category-slider ion-padding-start">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let category of categories">
+        <ion-col>
+          <h4>{{ category.name }}</h4>
+          <img src="{{ category.image }}" />
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="title ion-padding">
+    <h2 class="font-bold">Featured</h2>
+    <p>See all</p>
+  </div>
+
+  <div class="product-slider ion-padding-start">
+    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slide *ngFor="let product of featuredProducts">
+        <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
+          <img src="{{ product.image }}" />
+          <p>RM{{ product.price }}</p>
+          <h6>{{ product.name }}</h6>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="title ion-padding">
+    <h2 class="font-bold">Best Sell</h2>
+    <p>See all</p>
+  </div>
+
+  <ion-row>
+    <ion-slides [options]="{ slidesPerView: '1.3'}">
+      <ion-slide *ngFor="let product of bestSellProducts">
+          <ion-card class="featured"  routerLink="/item-details">
+          <ion-card-header>
+            <img src="{{ product.image }}" />
+            </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+            <ion-label>{{ product.name }}
+            </ion-label>
+              </ion-item>      
+        </ion-card-content>
+      </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+</ion-content>

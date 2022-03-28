@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button mode="md" defaultHref="welcome"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-row>
+      <ion-label color="light">
+        Welcome
+        <p>Admin <ion-icon name="briefcase-outline"></ion-icon></p>
+      </ion-label>
+    </ion-row>
+  </ion-header>
+
+  <ion-list class="ion-padding-horizontal ion-margin-horizontal">
+      <div class="ion-margin-bottom">
+        <ion-item>
+          <ion-input placeholder="Email" type="email" #adminEmail><ion-icon name="mail-outline"></ion-icon></ion-input>
+        </ion-item>
+      </div>
+      <div class="ion-margin-bottom">
+        <ion-item>
+          <ion-input placeholder="Password" type="password" #adminPassword><ion-icon name="key-outline"></ion-icon></ion-input>
+        </ion-item>
+      </div> 
+      <ion-item lines="none" class="signin">
+        <ion-label>
+          Sign in
+        </ion-label>
+        <ion-fab-button color="orange" slot="end" (click)="AdminSignIn(adminEmail.value, adminPassword.value)">
+          <ion-icon name="arrow-forward-outline" color="dark"></ion-icon>
+        </ion-fab-button>
+      </ion-item>     
+
+    <ion-item lines="none" class="featuredItems">
+      <ion-text slot="start">Sign up</ion-text>
+      <ion-text slot="end">Forgot Password?</ion-text>
+    </ion-item>
+
+
+  </ion-list>  
+
+</ion-content>

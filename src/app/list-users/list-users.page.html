@@ -1,0 +1,39 @@
+<ion-header class=" slides ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  color="light" defaultHref="/welcome-admin"></ion-back-button>
+     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/search-user">
+        <ion-icon color="light" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="titles">
+    <h4>List Of Customers <ion-icon name="people-outline"></ion-icon>
+    </h4>
+    <h6>You will be able to edit, add and delete the data.</h6>
+  </div>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+  <div class="ion-padding-horizontal">
+    <ion-row>
+      <ion-col size="8">
+        <h4><b>Users </b><ion-icon name="people-sharp"></ion-icon></h4>
+      </ion-col>
+    </ion-row>
+  </div>
+
+    <ion-item lines="full" style="border-radius: 10px;" *ngFor="let cust of customers">
+      <ion-item [routerLink]="['/viewcustomers', cust.id]">
+        <ion-icon slot="start" name="person-sharp"></ion-icon>
+      <ion-label>
+      <h2>{{ cust.displayName }}</h2>
+        <h3>{{ cust.email }}</h3>
+      </ion-label>
+      </ion-item>
+    </ion-item>
+
+</ion-content>

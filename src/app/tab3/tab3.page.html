@@ -1,0 +1,45 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="filter" routerLink="/search-product">
+        <ion-icon name="search-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+      <ion-fab-button (click)="openCart()" color="orange" #myfab>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <h1 class="title">Order Here</h1>
+
+  <div class="cart-items">
+    <ion-card mode="ios" *ngFor="let p of products | async" (click)="p.expanded = !p.expanded">
+      <ion-card-content>
+        
+        <div class="item-img">
+          <img src="{{ p.filepath }}" />
+        </div>
+
+
+        <div class="item-info">
+          <p><b>{{ p.name}}</b></p>
+          <p>{{ p.category }}</p>
+          <p>Stock: {{ p.stock }}</p>
+          <p>RM {{ p.price }}</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear" (click)="removeFromCart($event, p)" fill="clear" [disabled]="!cart[p.id] || cart[p.id] == 0">-</ion-button>
+            <ion-label>{{ cart[p.id] || 0 }}</ion-label>
+            <ion-button fill="clear" (click)="addToCart($event, p)">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+</div>
+</ion-content>

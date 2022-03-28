@@ -1,0 +1,62 @@
+<ion-header color="brown">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <h4 class="ion-text-center"> <b>About Us</b> <ion-icon name="book"></ion-icon></h4>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card>
+  <ion-card-header>
+    <ion-text color="light" style="font-family: 'EB Garamond', serif; font-size: large;"><b>Medlife Pharmacy</b><ion-icon name="briefcase-sharp"></ion-icon></ion-text>
+  </ion-card-header>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <ion-card>
+        <img src="assets/logo.png"/>
+      </ion-card>
+    </ion-slide>
+
+
+    <ion-slide>
+      <ion-card>
+        <img src="assets/home.PNG"/>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="assets/order.PNG"/>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card-content  style="text-align: justify;">
+    <ion-text color="light"><p>  The first MedLife drugstore was started on 5th of November 2021 when Syafiq Majid and his partners, Huda Awfa, Yasmin and Farihah decided to venture in the drugstore business after completing their compusory business studies in a well-known university. 
+      In a series of jobs with Kuala Lumpur’s leading drugstore, they grew increasingly knowledgeable and greatly dissatisfied with what they saw as old-fashioned, product price oriented and complacent methods of running a drugstore.</p> <br>
+      <p>  With an emphasis on individualized pharmaceutical care and superior customer service, MedLife prospered and expanded, opening location throughout numerous places in Malaysia. 
+      Our main focus is to achieve more than 20 outlets in one year and achieved revenue growth for the upcoming future. We provide the best essentials and appliances towards our customers in a satisfaction way when purchasing at our drugstore.</p> 
+    </ion-text>
+<ion-item color="none">
+  <ion-text color="light"><b>Contact Us </b><ion-icon name="call-outline"></ion-icon></ion-text>
+</ion-item>
+    <ion-item color="none" lines="none">
+      <ion-button color="dark" shape="round">
+      <ion-icon slot="start" style="font-size: xx-large;" name="mail" color="orange"></ion-icon>
+    </ion-button>
+      <ion-text  color="light" style="font-family: 'Roboto Mono', monospace; font-size: small;">Email: medlife@gmail.com</ion-text>
+    </ion-item>
+    <ion-item color="none" lines="none">
+      <ion-button color="dark" shape="round">
+      <ion-icon slot="start" style="font-size: xx-large;" name="call" color="orange"></ion-icon>
+    </ion-button>
+      <ion-text  color="light" style="font-family: 'Roboto Mono', monospace; font-size: small;">+6017-2807961</ion-text>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+
+

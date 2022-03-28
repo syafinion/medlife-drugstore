@@ -1,0 +1,70 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="filter" routerLink="/search-product">
+        <ion-icon name="search-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+      <ion-fab-button (click)="openCart()" color="orange" #myfab>
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="title ion-padding">
+    <h2>Haircare Shampoo</h2>
+    <ion-button color="orange" id="nested-button"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></ion-button>
+    <ion-popover trigger="nested-button" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-list>
+          <ion-item [button]="true" [detail]="false" routerLink="/skincare">
+            <ion-label>Skincare</ion-label>
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" routerLink="/haircare">
+            <ion-label>Haircare Shampoo</ion-label>
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" routerLink="/moisturizer">
+            <ion-label>Moisturiser</ion-label>
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" routerLink="/sunscreen">
+            <ion-label>Sunscreen</ion-label>
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" routerLink="/conditioner">
+            <ion-label>Conditioner</ion-label>
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" routerLink="/hairoil">
+            <ion-label>Hair Oil</ion-label>
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" routerLink="/makeup">
+            <ion-label>Make Up</ion-label>
+          </ion-item>
+        </ion-list>
+    </ng-template>
+    </ion-popover>
+  </div>
+
+  <!--List Products-->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-lg="5" size-md="6" *ngFor="let p of products">
+        <ion-card class="ion-no-margin"  [routerLink]="['/item-details', p.id]">
+          <img src ="{{ p.filepath }}" width="100%" height="100%"/>
+          <ion-card-header>
+            <ion-card-subtitle>{{ p.category }}</ion-card-subtitle>
+            <ion-card-title>{{ p.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div><ion-text color="orange">{{ p.price | currency: 'RM' }}</ion-text></div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

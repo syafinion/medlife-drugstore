@@ -1,0 +1,28 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="filter" routerLink="/search-product">
+        <ion-icon name="search-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+      <ion-fab-button (click)="openCart()" color="orange" #myfab>
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <br><br><br>
+  <img src="assets/done.png" width="60%"> <br>
+  <ion-label>Congratulation!</ion-label>
+  <p class="ion-padding">Your order has been placed. Thank you for purchasing with us! Hope you enjoy the shopping with
+    Medlife Pharmacy</p>
+  <br><br><br><br>
+  <ion-button  expand="block" color="orange" shape="round" routerLink="/tabs/tab4">
+    Home
+  </ion-button>
+</ion-content>

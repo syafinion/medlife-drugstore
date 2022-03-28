@@ -1,0 +1,49 @@
+<ion-header color="brown">
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="caret-back-outline" defaultHref="/list-users"></ion-back-button>
+     </ion-buttons>
+    <h4 class="ion-text-center">Edit User <ion-icon name="clipboard"></ion-icon></h4>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-item color="none" lines="none">
+<ion-text color="danger">
+  <p>Update information</p>
+</ion-text>
+</ion-item>
+ <ion-card>
+<ion-item color="none">
+  <ion-label position="floating">Name</ion-label>
+  <ion-input type="text" required [(ngModel)]="user.displayName"><ion-icon name="person" slot="start" color="medium"></ion-icon></ion-input>
+</ion-item>
+
+ 
+<ion-item>
+  <ion-label position="stacked">Email</ion-label>  
+  <ion-input type="email" [(ngModel)]="user.email"><ion-icon name="mail" slot="start" color="medium"></ion-icon>
+  </ion-input>
+</ion-item>
+
+ 
+<ion-item>
+  <ion-label position="stacked">Password</ion-label>
+  <ion-input type="Password" placeholder="Password" [(ngModel)]="user.password" ><ion-icon name="key" slot="start" color="medium"></ion-icon></ion-input>
+</ion-item>
+
+
+    
+   <ion-button color="orange" expand="block" (click)="updateUser(user)">
+     <ion-icon slot="start" name="cloud-upload-sharp"></ion-icon>
+    <b>Update</b>
+   </ion-button>
+ 
+  </ion-card>
+</ion-content>
+ 
+<ion-footer>
+  <ion-toolbar color="orange" class="ion-text-center">
+    <ion-title>Admin</ion-title>
+  </ion-toolbar>
+</ion-footer>

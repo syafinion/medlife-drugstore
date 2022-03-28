@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item *ngFor="let p of products">
+
+  <ion-label class="ion-text-wrap">
+    <img src ="{{ p.filepath }}"/>
+  
+      <p slot="start">
+        {{ p.count }}x
+      </p>
+    </ion-label>
+     <ion-label>
+        {{ p.name }}<br>
+       <p>{{ p.category }}</p> 
+       <p>{{ p.type }}</p>
+        <p> RM {{ p.price }}</p> 
+
+        
+        
+    </ion-label>
+
+    <!-- <ion-avatar slot="end">
+      <ion-img [src]="assets/logo2.jpg"></ion-img>-->
+        <!-- p.image-->
+    <!-- </ion-avatar> --> 
+    
+  </ion-item>
+</ion-list>
+</ion-content>
+
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="full" color="orange" class="main-button" (click)="checkout()">Continue</ion-button>
+  </ion-toolbar>
+</ion-footer>

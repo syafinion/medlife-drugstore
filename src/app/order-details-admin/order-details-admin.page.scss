@@ -1,0 +1,6 @@
+ion-content {
+    width: calc(106% + 15px);
+  }
+  ion-content::part(scroll) {
+    padding-right: 15px;
+  }

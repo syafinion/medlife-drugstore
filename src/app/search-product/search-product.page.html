@@ -1,0 +1,43 @@
+<ion-header color="orange">
+  <ion-toolbar color="orange">
+    <ion-button  slot="start" fill="clear" routerLink="/tabs">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <h4 class="ion-text-center">Search Product</h4>
+    <ion-buttons slot="end">
+      <ion-fab-button (click)="openCart()" color="orange" #myfab>
+        <ion-icon name="cart-outline" color="dark"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen [scrollEvents]="true" (ionScroll)="onScroll($event)" class="font">
+
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product" type="text" (ionInput)="filterList($event)"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+  <ion-list-header>Shop Product</ion-list-header>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-lg="5" size-md="6" *ngFor="let product of productList">
+          <ion-card class="ion-no-margin"  [routerLink]="['/item-details', product.id ]">
+            <img src ="{{ product.filepath }}"/>
+            <ion-card-header>
+              <ion-card-subtitle>{{ product.category }}</ion-card-subtitle>
+              <ion-card-title>{{ product.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <div><ion-text color="orange">{{ product.price | currency: 'RM' }}</ion-text></div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+  
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

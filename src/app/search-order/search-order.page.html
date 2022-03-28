@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button  color="light" defaultHref="/list-orders"></ion-back-button>
+     </ion-buttons>
+    <h4 class="ion-text-center"><b>Search Orders</b> <ion-icon name="search-outline"></ion-icon></h4>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar class="font" placeholder="eg: Name" type="text" (ionInput)="filterList($event)">
+  </ion-searchbar>
+
+  <div class="ion-padding-horizontal">
+    <ion-row>
+      <ion-col size="8">
+        <h4><b>Orders</b></h4>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-card *ngFor="let order of orderList">
+    <ion-item lines="full">
+      <ion-icon name="pin" slot="start" color="danger"></ion-icon>
+      <ion-label color="orange">{{ order.order_status}}</ion-label>
+      <ion-button fill="outline" color="orange" slot="end" [routerLink]="['/order-details-admin', order.order_id]">view</ion-button>
+    </ion-item>
+  <ion-item>
+          <ion-text style="font-size: small;"><b>Order Id:</b> {{ order.order_id }}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text style="font-size: small;">{{ order.user_email }}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Total: </ion-label>
+      <ion-text color="orange" slot="end">RM{{ order.total }}</ion-text>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

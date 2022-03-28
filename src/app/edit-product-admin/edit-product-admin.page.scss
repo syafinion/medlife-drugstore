@@ -1,0 +1,11 @@
+ion-content {
+  margin-bottom: 30px;
+    // overwrite inline styles
+    --offset-bottom: auto !important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+     display: none;
+    }
+    background: linear-gradient(315deg, #a44200 0%, #f2c17d 74%);
+  }

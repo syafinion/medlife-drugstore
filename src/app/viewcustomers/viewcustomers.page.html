@@ -1,0 +1,64 @@
+
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+     <ion-back-button  defaultHref="/listcustomers"></ion-back-button>
+    </ion-buttons>
+    <h4 class="ion-text-center">User Details</h4>
+    <ion-buttons slot="end">
+      <ion-button id="nested-button" color="light"><ion-icon color="light" name="ellipsis-vertical-outline"></ion-icon></ion-button>
+    <ion-popover trigger="nested-button" [dismissOnSelect]="true">
+      <ng-template>
+          <ion-list>
+            <ion-item [button]="true" [detail]="false" color="danger">
+              <ion-label  (click)="deleteUser(user.uid)">Delete<ion-icon style="font-size: large;" name="trash"></ion-icon></ion-label>
+            </ion-item>
+            <ion-item [button]="true" [detail]="false">
+              <ion-label  [routerLink]="['/edit-user-admin', user.uid]">Edit User<ion-icon name="pencil"></ion-icon></ion-label>
+            </ion-item>
+          </ion-list>
+      </ng-template>
+    </ion-popover>
+     </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content [fullscreen]="true">
+  <ion-grid class="main-header">
+    <div align="center">
+      <ion-avatar>
+        <img src="assets/listcust.png" />
+      </ion-avatar>
+    </div>
+  </ion-grid>
+
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label>
+        <ion-text>Name</ion-text>
+        <p><ion-text color="dark">{{ user.displayName }}</ion-text></p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Phone</ion-text>
+        <p><ion-text color="dark">{{ user.phoneNumber }}</ion-text></p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Email</ion-text>
+        <p><ion-text color="dark">{{ user.email }}</ion-text></p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>User ID</ion-text>
+        <p><ion-text color="dark">{{user.uid}}</ion-text></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
